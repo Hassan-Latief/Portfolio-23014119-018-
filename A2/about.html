@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Hassan's Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            secondary: '#10b981',
+            dark: '#1e293b',
+            light: '#f8fafc',
+          },
+          animation: {
+            'fade-in': 'fadeIn 1s ease-in-out',
+            'float': 'float 3s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+      }
+      .bg-glass {
+        @apply bg-white/10 backdrop-blur-md border border-white/10;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-dark to-gray-800 text-light min-h-screen font-sans antialiased">
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 bg-dark/90 backdrop-blur-sm shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-gradient">Hassan<span class="text-secondary">Latief</span></a>
+      
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+        <a href="about.html" class="text-primary font-medium">About</a>
+        <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+        <a href="skills.html" class="hover:text-primary transition-colors">Skills</a>
+        <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-2xl focus:outline-none" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-dark/95 py-4 px-4" id="mobile-menu">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+        <a href="about.html" class="text-primary font-medium">About</a>
+        <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+        <a href="skills.html" class="hover:text-primary transition-colors">Skills</a>
+        <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+    <!-- Hero Section -->
+    <section class="flex flex-col lg:flex-row items-center gap-12 mb-20 animate-fade-in">
+      <div class="lg:w-1/3 flex justify-center">
+        <div class="relative group">
+          <div class="absolute -inset-2 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-200 animate-float"></div>
+          <img src="img.jpe.JPG" alt="Hassan Latief" class="relative w-64 h-64 rounded-full object-cover border-4 border-white shadow-lg">
+        </div>
+      </div>
+      
+      <div class="lg:w-2/3 text-center lg:text-left">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Hello, I'm <span class="text-gradient">Hassan Latief</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-6">
+          A passionate Computer Science student specializing in web development
+        </p>
+        <div class="flex justify-center lg:justify-start space-x-6">
+          <a href="#" class="text-2xl hover:text-primary transition-colors" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="text-2xl hover:text-primary transition-colors" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="#" class="text-2xl hover:text-primary transition-colors" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="grid md:grid-cols-2 gap-8">
+      <!-- Education -->
+      <div class="bg-glass p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-user-graduate text-2xl text-primary mr-3"></i>
+          <h3 class="text-2xl font-bold">Education</h3>
+        </div>
+        <p class="text-gray-300">
+          Currently pursuing my Bachelor's in Computer Science (BSCS) with a focus on web technologies and software development.
+        </p>
+      </div>
+      
+      <!-- Journey -->
+      <div class="bg-glass p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-laptop-code text-2xl text-primary mr-3"></i>
+          <h3 class="text-2xl font-bold">My Journey</h3>
+        </div>
+        <p class="text-gray-300">
+          I discovered my passion for web development during my first year of college and have been building projects ever since. I enjoy creating user-friendly, responsive websites that solve real problems.
+        </p>
+      </div>
+      
+      <!-- Skills Highlight -->
+      <div class="md:col-span-2 grid md:grid-cols-3 gap-6">
+        <div class="bg-glass p-6 rounded-xl shadow-lg hover:shadow-xl transition-transform hover:-translate-y-2">
+          <i class="fas fa-code text-4xl text-primary mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">Frontend Development</h4>
+          <p class="text-gray-300">HTML, CSS, JavaScript, React, Tailwind CSS</p>
+        </div>
+        <div class="bg-glass p-6 rounded-xl shadow-lg hover:shadow-xl transition-transform hover:-translate-y-2">
+          <i class="fas fa-server text-4xl text-primary mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">Backend Development</h4>
+          <p class="text-gray-300">Node.js, Express, MongoDB, REST APIs</p>
+        </div>
+        <div class="bg-glass p-6 rounded-xl shadow-lg hover:shadow-xl transition-transform hover:-translate-y-2">
+          <i class="fas fa-paint-brush text-4xl text-primary mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">Design Skills</h4>
+          <p class="text-gray-300">UI/UX Principles, Figma, Adobe Photoshop</p>
+        </div>
+      </div>
+      
+      <!-- Goals -->
+      <div class="bg-glass p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-bullseye text-2xl text-primary mr-3"></i>
+          <h3 class="text-2xl font-bold">Goals</h3>
+        </div>
+        <p class="text-gray-300">
+          My goal is to become a full-stack developer and contribute to meaningful projects that make a difference. I'm particularly interested in web accessibility and performance optimization.
+        </p>
+      </div>
+      
+      <!-- Beyond Coding -->
+      <div class="bg-glass p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-gamepad text-2xl text-primary mr-3"></i>
+          <h3 class="text-2xl font-bold">Beyond Coding</h3>
+        </div>
+        <p class="text-gray-300">
+          When I'm not coding, you can find me gaming, working on graphic design projects, or exploring new technologies. I believe in lifelong learning and continuous improvement.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark/80 py-8 mt-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Hassan Latief. All rights reserved.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Add animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

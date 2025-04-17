@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills | Hassan's Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            secondary: '#10b981',
+            dark: '#1e293b',
+            light: '#f8fafc',
+            accent: '#f59e0b',
+          },
+          animation: {
+            'fade-in': 'fadeIn 1s ease-in-out',
+            'float': 'float 3s ease-in-out infinite',
+            'slide-in': 'slideIn 0.5s ease-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            slideIn: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+      }
+      .bg-glass {
+        @apply bg-white/10 backdrop-blur-md border border-white/10;
+      }
+      .skill-hover {
+        @apply hover:scale-[1.02] hover:shadow-lg transition-all duration-300;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-dark to-gray-800 text-light min-h-screen font-sans antialiased">
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 bg-dark/90 backdrop-blur-sm shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-gradient">Hassan<span class="text-secondary">Latief</span></a>
+      
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+        <a href="about.html" class="hover:text-primary transition-colors">About</a>
+        <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+        <a href="skills.html" class="text-primary font-medium">Skills</a>
+        <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-2xl focus:outline-none" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-dark/95 py-4 px-4" id="mobile-menu">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+        <a href="about.html" class="hover:text-primary transition-colors">About</a>
+        <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
+        <a href="skills.html" class="text-primary font-medium">Skills</a>
+        <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+    <!-- Skills Hero -->
+    <section class="text-center mb-16 animate-fade-in">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        My <span class="text-gradient">Technical</span> Toolkit
+      </h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        A collection of technologies and methodologies I've mastered through coursework and personal projects
+      </p>
+    </section>
+
+    <!-- Skills Categories -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <!-- Programming Languages -->
+      <div class="bg-glass p-8 rounded-xl shadow-lg animate-slide-in">
+        <div class="flex items-center mb-6">
+          <div class="bg-primary/20 p-3 rounded-full mr-4">
+            <i class="fas fa-code text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-2xl font-bold">Programming Languages</h3>
+        </div>
+        <div class="space-y-4">
+          <!-- HTML5 -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fab fa-html5 text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">HTML5</h4>
+              <span class="ml-auto text-primary font-bold">95%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 95%"></div>
+            </div>
+          </div>
+          
+          <!-- CSS3 -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover" style="animation-delay: 0.1s;">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fab fa-css3-alt text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">CSS3</h4>
+              <span class="ml-auto text-primary font-bold">90%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <!-- JavaScript -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover" style="animation-delay: 0.2s;">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fab fa-js text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">JavaScript</h4>
+              <span class="ml-auto text-primary font-bold">80%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+            </div>
+          </div>
+          
+          <!-- Python -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover" style="animation-delay: 0.3s;">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fab fa-python text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">Python</h4>
+              <span class="ml-auto text-primary font-bold">75%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frameworks & Libraries -->
+      <div class="bg-glass p-8 rounded-xl shadow-lg animate-slide-in" style="animation-delay: 0.1s;">
+        <div class="flex items-center mb-6">
+          <div class="bg-primary/20 p-3 rounded-full mr-4">
+            <i class="fas fa-layer-group text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-2xl font-bold">Frameworks & Libraries</h3>
+        </div>
+        <div class="space-y-4">
+          <!-- Tailwind CSS -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fas fa-wind text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">Tailwind CSS</h4>
+              <span class="ml-auto text-primary font-bold">85%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <!-- Bootstrap -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover" style="animation-delay: 0.1s;">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fab fa-bootstrap text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">Bootstrap</h4>
+              <span class="ml-auto text-primary font-bold">70%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 70%"></div>
+            </div>
+          </div>
+          
+          <!-- React -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover" style="animation-delay: 0.2s;">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fab fa-react text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">React</h4>
+              <span class="ml-auto text-primary font-bold">60%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 60%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Platforms -->
+      <div class="bg-glass p-8 rounded-xl shadow-lg animate-slide-in" style="animation-delay: 0.2s;">
+        <div class="flex items-center mb-6">
+          <div class="bg-primary/20 p-3 rounded-full mr-4">
+            <i class="fas fa-tools text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-2xl font-bold">Tools & Platforms</h3>
+        </div>
+        <div class="space-y-4">
+          <!-- Git & GitHub -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fas fa-code-branch text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">Git & GitHub</h4>
+              <span class="ml-auto text-primary font-bold">80%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+            </div>
+          </div>
+          
+          <!-- VS Code -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover" style="animation-delay: 0.1s;">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fas fa-terminal text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">VS Code</h4>
+              <span class="ml-auto text-primary font-bold">90%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <!-- Figma -->
+          <div class="bg-dark/50 p-4 rounded-lg skill-hover" style="animation-delay: 0.2s;">
+            <div class="flex items-center">
+              <div class="bg-primary/20 p-2 rounded-full mr-4">
+                <i class="fab fa-figma text-xl text-primary"></i>
+              </div>
+              <h4 class="text-lg font-medium">Figma</h4>
+              <span class="ml-auto text-primary font-bold">75%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="bg-glass p-8 rounded-xl shadow-lg animate-slide-in" style="animation-delay: 0.3s;">
+        <div class="flex items-center mb-6">
+          <div class="bg-primary/20 p-3 rounded-full mr-4">
+            <i class="fas fa-brain text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-2xl font-bold">Soft Skills</h3>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div class="bg-dark/50 p-3 rounded-lg text-center hover:bg-primary/20 transition-colors">
+            Team Collaboration
+          </div>
+          <div class="bg-dark/50 p-3 rounded-lg text-center hover:bg-primary/20 transition-colors">
+            Problem Solving
+          </div>
+          <div class="bg-dark/50 p-3 rounded-lg text-center hover:bg-primary/20 transition-colors">
+            Communication
+          </div>
+          <div class="bg-dark/50 p-3 rounded-lg text-center hover:bg-primary/20 transition-colors">
+            Attention to Detail
+          </div>
+          <div class="bg-dark/50 p-3 rounded-lg text-center hover:bg-primary/20 transition-colors">
+            Time Management
+          </div>
+          <div class="bg-dark/50 p-3 rounded-lg text-center hover:bg-primary/20 transition-colors">
+            Adaptability
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark/80 py-8 mt-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Hassan Latief. All rights reserved.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Add animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('section, .bg-glass').forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
