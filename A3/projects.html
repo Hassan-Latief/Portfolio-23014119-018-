@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Hassan's Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            secondary: '#10b981',
+            dark: '#1e293b',
+            light: '#f8fafc',
+            accent: '#f59e0b',
+          },
+          animation: {
+            'fade-in': 'fadeIn 1s ease-in-out',
+            'float': 'float 3s ease-in-out infinite',
+            'slide-in': 'slideIn 0.5s ease-out',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            slideIn: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+      }
+      .bg-glass {
+        @apply bg-white/10 backdrop-blur-md border border-white/10;
+      }
+      .project-card-hover {
+        @apply hover:scale-[1.02] hover:shadow-xl transition-all duration-300;
+      }
+      .project-modal {
+        @apply fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-dark to-gray-800 text-light min-h-screen font-sans antialiased">
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 bg-dark/90 backdrop-blur-sm shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-gradient">Hassan<span class="text-secondary">Latief</span></a>
+      
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+        <a href="about.html" class="hover:text-primary transition-colors">About</a>
+        <a href="projects.html" class="text-primary font-medium">Projects</a>
+        <a href="skills.html" class="hover:text-primary transition-colors">Skills</a>
+        <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-2xl focus:outline-none" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-dark/95 py-4 px-4" id="mobile-menu">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+        <a href="about.html" class="hover:text-primary transition-colors">About</a>
+        <a href="projects.html" class="text-primary font-medium">Projects</a>
+        <a href="skills.html" class="hover:text-primary transition-colors">Skills</a>
+        <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+    <!-- Projects Intro -->
+    <section class="text-center mb-16 animate-fade-in">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">My Development Projects</h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Here's a collection of my work showcasing my skills in web development and problem-solving.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <button id="theme-toggle" class="px-4 py-2 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors">
+          <i class="fas fa-moon mr-2"></i>Toggle Theme
+        </button>
+        <button id="filter-all" class="px-4 py-2 rounded-full bg-primary text-white">All Projects</button>
+        <button id="filter-web" class="px-4 py-2 rounded-full bg-dark/50 hover:bg-primary/30 transition-colors">Web Apps</button>
+        <button id="filter-design" class="px-4 py-2 rounded-full bg-dark/50 hover:bg-primary/30 transition-colors">Design</button>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+      <!-- Health Connect Project -->
+      <div class="project-card bg-glass rounded-xl overflow-hidden shadow-lg project-card-hover animate-slide-in" data-category="web">
+        <div class="h-48 overflow-hidden relative">
+          <img src="health.jpg" alt="Health Connect Project" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+            <span class="bg-secondary px-3 py-1 rounded-full text-sm text-white">Featured</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-3">Health Connect</h3>
+          <p class="text-gray-300 mb-4">
+            A responsive healthcare booking platform built with React and Node.js, featuring appointment scheduling and doctor-patient communication.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">React</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Node.js</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">MongoDB</span>
+          </div>
+          <button class="view-details-btn inline-block bg-gradient-to-r from-primary to-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity" data-project="health-connect">
+            View Details
+          </button>
+        </div>
+      </div>
+
+      <!-- Weather App -->
+      <div class="project-card bg-glass rounded-xl overflow-hidden shadow-lg project-card-hover animate-slide-in" data-category="web" style="animation-delay: 0.1s;">
+        <div class="h-48 overflow-hidden">
+          <img src="wheather.jpg" alt="Weather App" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-3">Weather App</h3>
+          <p class="text-gray-300 mb-4">
+            Real-time weather forecast application using OpenWeather API with dynamic background changes based on weather conditions.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">JavaScript</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">API Integration</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">CSS3</span>
+          </div>
+          <button class="view-details-btn inline-block bg-gradient-to-r from-primary to-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity" data-project="weather-app">
+            View Details
+          </button>
+        </div>
+      </div>
+
+      <!-- To-Do List -->
+      <div class="project-card bg-glass rounded-xl overflow-hidden shadow-lg project-card-hover animate-slide-in" data-category="web" style="animation-delay: 0.2s;">
+        <div class="h-48 overflow-hidden">
+          <img src="to do list.jpg" alt="To-Do List App" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-3">To-Do List</h3>
+          <p class="text-gray-300 mb-4">
+            Task management application with local storage persistence, drag-and-drop functionality, and priority tagging.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Vanilla JS</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Local Storage</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Responsive Design</span>
+          </div>
+          <button class="view-details-btn inline-block bg-gradient-to-r from-primary to-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity" data-project="todo-list">
+            View Details
+          </button>
+        </div>
+      </div>
+
+      <!-- Portfolio Site -->
+      <div class="project-card bg-glass rounded-xl overflow-hidden shadow-lg project-card-hover animate-slide-in" data-category="design" style="animation-delay: 0.3s;">
+        <div class="h-48 overflow-hidden">
+          <img src="portfolio.jpg" alt="Portfolio Website" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-3">Portfolio Site</h3>
+          <p class="text-gray-300 mb-4">
+            This responsive portfolio website built with semantic HTML, CSS animations, and JavaScript interactivity.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">HTML5</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">CSS3</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">JavaScript</span>
+          </div>
+          <button class="view-details-btn inline-block bg-gradient-to-r from-primary to-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity" data-project="portfolio-site">
+            View Live
+          </button>
+        </div>
+      </div>
+
+      <!-- Blog Template -->
+      <div class="project-card bg-glass rounded-xl overflow-hidden shadow-lg project-card-hover animate-slide-in" data-category="design" style="animation-delay: 0.4s;">
+        <div class="h-48 overflow-hidden">
+          <img src="blog.jpg" alt="Blog Template" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-3">Blog Template</h3>
+          <p class="text-gray-300 mb-4">
+            A minimalist blog template with clean typography, dark mode toggle, and responsive grid layout for optimal reading experience.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Semantic HTML</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">CSS Grid</span>
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Accessibility</span>
+          </div>
+          <button class="view-details-btn inline-block bg-gradient-to-r from-primary to-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity" data-project="blog-template">
+            View Template
+          </button>
+        </div>
+      </div>
+
+      <!-- Coming Soon Project -->
+      <div class="project-card bg-glass rounded-xl overflow-hidden shadow-lg project-card-hover animate-slide-in" data-category="web" style="animation-delay: 0.5s;">
+        <div class="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+          <i class="fas fa-lightbulb text-5xl text-accent"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-3">Next Project</h3>
+          <p class="text-gray-300 mb-4">
+            Currently working on something exciting! Check back soon to see my latest creation.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">Coming Soon</span>
+          </div>
+          <a href="contact.html" class="inline-block bg-transparent border border-primary text-primary px-6 py-2 rounded-lg font-medium hover:bg-primary/10 transition-colors">
+            Suggest an Idea
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="project-modal">
+    <div class="bg-dark rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="relative">
+        <button id="close-modal" class="absolute top-4 right-4 z-10 bg-dark/80 rounded-full p-2 text-gray-300 hover:text-white">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="h-64 md:h-80 overflow-hidden">
+          <img id="modal-image" src="" alt="" class="w-full h-full object-cover">
+        </div>
+      </div>
+      <div class="p-6">
+        <h2 id="modal-title" class="text-3xl font-bold mb-4"></h2>
+        <div id="modal-tech" class="flex flex-wrap gap-2 mb-5"></div>
+        <div id="modal-content" class="prose prose-invert max-w-none"></div>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a id="live-demo" href="#" target="_blank" class="inline-block bg-gradient-to-r from-primary to-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity">
+            <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+          </a>
+          <a id="source-code" href="#" target="_blank" class="inline-block bg-dark border border-primary text-primary px-6 py-2 rounded-lg font-medium hover:bg-primary/10 transition-colors">
+            <i class="fab fa-github mr-2"></i>Source Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark/80 py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col items-center">
+        <div class="flex space-x-6 mb-6">
+          <a href="#" class="text-2xl hover:text-primary transition-colors" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="text-2xl hover:text-primary transition-colors" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="#" class="text-2xl hover:text-primary transition-colors" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        <p class="text-gray-400 text-center">
+          &copy; <span id="current-year"></span> Hassan Latief. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Mobile menu toggle with animation
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('animate-fade-in');
+    });
+
+    // 2. Dark/Light theme toggle with localStorage
+    const themeToggle = document.getElementById('theme-toggle');
+    const icon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('bg-gray-100');
+      document.body.classList.toggle('text-gray-900');
+      document.body.classList.toggle('bg-gradient-to-br');
+      document.body.classList.toggle('from-dark');
+      document.body.classList.toggle('to-gray-800');
+      document.body.classList.toggle('text-light');
+      
+      if (document.body.classList.contains('bg-gray-100')) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+        themeToggle.innerHTML = '<i class="fas fa-sun mr-2"></i>Toggle Theme';
+        localStorage.setItem('theme', 'light');
+      } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+        themeToggle.innerHTML = '<i class="fas fa-moon mr-2"></i>Toggle Theme';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+    
+    // Check for saved theme preference
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('bg-gray-100', 'text-gray-900');
+      document.body.classList.remove('bg-gradient-to-br', 'from-dark', 'to-gray-800', 'text-light');
+      icon.classList.replace('fa-moon', 'fa-sun');
+      themeToggle.innerHTML = '<i class="fas fa-sun mr-2"></i>Toggle Theme';
+    }
+
+    // 3. Project filtering system
+    const filterAll = document.getElementById('filter-all');
+    const filterWeb = document.getElementById('filter-web');
+    const filterDesign = document.getElementById('filter-design');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterAll.addEventListener('click', () => {
+      filterButtonsReset();
+      filterAll.classList.add('bg-primary', 'text-white');
+      filterAll.classList.remove('bg-dark/50', 'hover:bg-primary/30');
+      
+      projectCards.forEach(card => {
+        card.style.display = 'block';
+        card.classList.add('animate-fade-in');
+      });
+    });
+    
+    filterWeb.addEventListener('click', () => {
+      filterButtonsReset();
+      filterWeb.classList.add('bg-primary', 'text-white');
+      filterWeb.classList.remove('bg-dark/50', 'hover:bg-primary/30');
+      
+      projectCards.forEach(card => {
+        if (card.dataset.category === 'web') {
+          card.style.display = 'block';
+          card.classList.add('animate-fade-in');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+    
+    filterDesign.addEventListener('click', () => {
+      filterButtonsReset();
+      filterDesign.classList.add('bg-primary', 'text-white');
+      filterDesign.classList.remove('bg-dark/50', 'hover:bg-primary/30');
+      
+      projectCards.forEach(card => {
+        if (card.dataset.category === 'design') {
+          card.style.display = 'block';
+          card.classList.add('animate-fade-in');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+    
+    function filterButtonsReset() {
+      [filterAll, filterWeb, filterDesign].forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white');
+        btn.classList.add('bg-dark/50', 'hover:bg-primary/30');
+      });
+    }
+
+    // 4. Project modal system
+    const projectModal = document.getElementById('project-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalTech = document.getElementById('modal-tech');
+    const modalContent = document.getElementById('modal-content');
+    const liveDemo = document.getElementById('live-demo');
+    const sourceCode = document.getElementById('source-code');
+    
+    // Project data
+    const projects = {
+      'health-connect': {
+        title: 'Health Connect',
+        image: 'https://source.unsplash.com/random/800x500/?healthcare',
+        tech: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT Auth'],
+        content: `<p>Health Connect is a comprehensive healthcare platform that connects patients with healthcare providers. Key features include:</p>
+          <ul>
+            <li>Real-time appointment scheduling</li>
+            <li>Secure doctor-patient messaging</li>
+            <li>Electronic health records management</li>
+            <li>Telemedicine integration</li>
+            <li>Prescription management system</li>
+          </ul>
+          <p>The platform was built with a focus on accessibility and responsiveness, ensuring it works well on all devices.</p>`,
+        demo: '#',
+        code: '#'
+      },
+      'weather-app': {
+        title: 'Weather Forecast App',
+        image: 'https://source.unsplash.com/random/800x500/?weather',
+        tech: ['JavaScript', 'OpenWeather API', 'CSS3', 'Geolocation API'],
+        content: `<p>This weather application provides real-time weather data with these features:</p>
+          <ul>
+            <li>5-day forecast with interactive charts</li>
+            <li>Dynamic background changes based on weather conditions</li>
+            <li>Location-based weather using geolocation</li>
+            <li>Search functionality for any city worldwide</li>
+            <li>Temperature unit toggle (Celsius/Fahrenheit)</li>
+          </ul>
+          <p>The app uses modern async/await patterns for API calls and localStorage for user preferences.</p>`,
+        demo: '#',
+        code: '#'
+      },
+      // Add other projects similarly
+    };
+    
+    viewDetailsBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const projectId = this.dataset.project;
+        const project = projects[projectId];
+        
+        if (project) {
+          modalTitle.textContent = project.title;
+          modalImage.src = project.image;
+          modalImage.alt = project.title;
+          
+          // Clear and add tech tags
+          modalTech.innerHTML = '';
+          project.tech.forEach(tech => {
+            const tag = document.createElement('span');
+            tag.className = 'bg-primary/20 text-primary px-3 py-1 rounded-full text-sm';
+            tag.textContent = tech;
+            modalTech.appendChild(tag);
+          });
+          
+          modalContent.innerHTML = project.content;
+          liveDemo.href = project.demo;
+          sourceCode.href = project.code;
+          
+          projectModal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+    
+    closeModalBtn.addEventListener('click', () => {
+      projectModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+    
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        projectModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // 5. Dynamic current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // 6. Scroll animations with Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('section, .bg-glass').forEach(element => {
+      observer.observe(element);
+    });
+
+    // 7. Scroll to top button
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    scrollToTopBtn.className = 'fixed bottom-6 right-6 bg-primary p-3 rounded-full shadow-lg hover:bg-primary/80 transition-colors hidden z-40';
+    scrollToTopBtn.id = 'scroll-to-top';
+    document.body.appendChild(scrollToTopBtn);
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.remove('hidden');
+      } else {
+        scrollToTopBtn.classList.add('hidden');
+      }
+    });
+    
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // 8. Project card hover animations
+    document.querySelectorAll('.project-card-hover').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+      });
+    });
+
+    // 9. Image lazy loading
+    const lazyImages = document.querySelectorAll('img');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.getAttribute('data-src') || img.src;
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+    
+    lazyImages.forEach(img => {
+      imageObserver.observe(img);
+    });
+
+    // 10. Social media links animation
+    const socialLinks = document.querySelectorAll('footer a');
+    socialLinks.forEach(link => {
+      link.addEventListener('mouseenter', function() {
+        this.querySelector('i').classList.add('animate-float');
+      });
+      link.addEventListener('mouseleave', function() {
+        this.querySelector('i').classList.remove('animate-float');
+      });
+    });
+
+    // 11. Project card click effect
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        // Only trigger if not clicking a button or link
+        if (!e.target.closest('button, a')) {
+          this.classList.add('ring-2', 'ring-primary');
+          setTimeout(() => {
+            this.classList.remove('ring-2', 'ring-primary');
+          }, 300);
+        }
+      });
+    });
+
+    // 12. Coming soon project animation
+    const comingSoon = document.querySelector('[data-category="web"]:last-child');
+    if (comingSoon) {
+      setInterval(() => {
+        comingSoon.querySelector('i').classList.toggle('text-accent');
+        comingSoon.querySelector('i').classList.toggle('text-secondary');
+      }, 2000);
+    }
+
+    // 13. Dynamic project count
+    const projectCount = document.createElement('div');
+    projectCount.className = 'text-sm text-gray-400 mt-4';
+    projectCount.textContent = `Showing ${projectCards.length} projects`;
+    document.querySelector('section.text-center').appendChild(projectCount);
+
+    // 14. Project search functionality (could be enhanced)
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = 'Search projects...';
+    searchInput.className = 'px-4 py-2 rounded-full bg-dark/50 text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-primary max-w-md w-full';
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      projectCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+    document.querySelector('section.text-center').appendChild(searchInput);
+
+    // 15. Project sorting (by date, name, etc.)
+    const sortSelect = document.createElement('select');
+    sortSelect.className = 'px-4 py-2 rounded-full bg-dark/50 text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-primary';
+    sortSelect.innerHTML = `
+      <option value="default">Sort by</option>
+      <option value="name-asc">Name (A-Z)</option>
+      <option value="name-desc">Name (Z-A)</option>
+    `;
+    sortSelect.addEventListener('change', function() {
+      const projectsContainer = document.getElementById('projects-container');
+      const projects = Array.from(projectsContainer.querySelectorAll('.project-card'));
+      
+      if (this.value === 'name-asc') {
+        projects.sort((a, b) => {
+          const nameA = a.querySelector('h3').textContent.toLowerCase();
+          const nameB = b.querySelector('h3').textContent.toLowerCase();
+          return nameA.localeCompare(nameB);
+        });
+      } else if (this.value === 'name-desc') {
+        projects.sort((a, b) => {
+          const nameA = a.querySelector('h3').textContent.toLowerCase();
+          const nameB = b.querySelector('h3').textContent.toLowerCase();
+          return nameB.localeCompare(nameA);
+        });
+      }
+      
+      // Re-append sorted projects
+      projects.forEach(project => {
+        projectsContainer.appendChild(project);
+      });
+    });
+    document.querySelector('section.text-center').appendChild(sortSelect);
+  </script>
+</body>
+</html>
